@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{% block title %}Soft Manager{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+        {% include('template/styles.html.twig') %} 
+        {% include('template/scripts.html.twig') %} 
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}" />
+    </head>
+    
+    <body>
+        {% block body %}
+            {% include('template/header.html.twig') %} 
+            <div>{% block content %}{% endblock %}</div>
+            {% include('template/footer.html.twig') %} 
+        {% endblock %}
+    {% block javascripts %}{% endblock %}
+    </body>
+    
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ad</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ad.id }}</td>
+            </tr>
+            <tr>
+                <th>Idaccount</th>
+                <td>{{ ad.idAccount }}</td>
+            </tr>
+            <tr>
+                <th>Idproject</th>
+                <td>{{ ad.idProject }}</td>
+            </tr>
+            <tr>
+                <th>Originalproject</th>
+                <td>{{ ad.originalProject }}</td>
+            </tr>
+            <tr>
+                <th>Banner</th>
+                <td>{{ ad.banner }}</td>
+            </tr>
+            <tr>
+                <th>Interstitial</th>
+                <td>{{ ad.interstitial }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{% if ad.creationDate %}{{ ad.creationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ad_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ad_edit', { 'id': ad.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
